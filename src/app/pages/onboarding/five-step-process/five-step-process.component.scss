@@ -56,9 +56,10 @@
     .progress-button-container {
         display: flex;
         justify-content: center;
-        margin-bottom: 5rem;
-
+        // margin-bottom: 5rem;
         .progress-buttons {
+            // position: fixed;
+            
             width: 90%;
             margin-top: 1rem;
             display: flex;
@@ -88,7 +89,16 @@
         }
     }
 
+    .bottom-info {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        background-color: white;
+    }
+
     .section-wrapper {
+        // height: 1070vh;
         .content-container {
             height: 120vh;
 
@@ -127,6 +137,16 @@
                                     line-height: 136.5%;
                                     margin-left: 2rem;
                                 }
+
+                                span{
+                                    color: #04A9F4;
+                                    display: inline-flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    margin-left: 12rem;
+                                    margin-bottom: 3rem;
+                                    font-size: 22px;
+                                }
                             }
                         }
                     }
@@ -163,6 +183,12 @@
                                     font-weight: 600;
                                     line-height: 136.5%;
                                     margin-left: 2rem;
+                                }
+                                span{
+                                    background-color: white;
+                                    display: inline-block;
+                                    margin-left: 3rem;
+                                    padding-left: 3rem;
                                 }
                             }
                         }
@@ -211,6 +237,18 @@
                                     line-height: 136.5%;
                                     margin-left: 2rem;
                                 }
+
+                                span{
+                                    color: #04A9F4;
+                                    display: inline-flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    margin-left: 10rem;
+                                    margin-bottom: 3rem;
+                                    font-size: 22px;
+                                }
+
+
                             }
                         }
                     }
@@ -258,7 +296,7 @@
        .right-side {
         height: 80vh;
         .content {
-            width: 50%;
+            width: 70%;
             margin-top: 3rem;
             margin-left: 2rem;
             .input-group {
@@ -347,5 +385,20 @@
         }
        }
     }
+
+    .item-thumbnail {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px; /* Add a margin of 20px between items */
+      }
+
+      
+    //   .fa-circle-check {
+    //     position: absolute;
+    //     top: 10px; /* Adjust the top position as needed */
+    //     right: 10px; /* Adjust the right position as needed */
+    //     font-size: 16px; /* Adjust the font size as needed */
+    //     color: green; /* Adjust the icon color as needed */
+    //   }
 
 }

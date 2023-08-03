@@ -3,8 +3,11 @@
         <div class="content-container">
             <div class="content">
                 <p>Create beautiful websites with no code</p>
-                <div class="button-style">
-                    <button>START HERE</button>
+                <div *ngIf="isEdit === false" class="button-style">
+                    <button (click)="createSitesNoCode()">START HERE</button>
+                </div>
+                <div *ngIf="isEdit === true" class="button-style">
+                    <button (click)="editSite()">Edit Site</button>
                 </div>
             </div>
         </div>

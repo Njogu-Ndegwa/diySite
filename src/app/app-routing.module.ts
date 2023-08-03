@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { AuthGuard } from './guards/authGuard';
 const routes: Routes = [
   {
     path: 'login',
@@ -24,7 +24,18 @@ const routes: Routes = [
       import('./pages/onboarding/onboarding.component.module').then(
         (m) => m.OnboardingModule
       ),
+      canActivate: [AuthGuard]
   },
+
+  {
+    path: 'onboarding/:sso_link',
+    loadChildren: () =>
+      import('./pages/onboarding/onboarding.component.module').then(
+        (m) => m.OnboardingModule
+      ),
+      canActivate: [AuthGuard]
+  },
+
 
   {
     path: 'five-step-process',
@@ -32,6 +43,7 @@ const routes: Routes = [
       import('./pages/onboarding/five-step-process/five-step-process.component.module').then(
         (m) => m.FiveStepProcessModule
       ),
+      canActivate: [AuthGuard]
   },
 ];
 

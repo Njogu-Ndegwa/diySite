@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl,  FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { SignupService } from 'src/app/services/authentication/signup/signup.service';
 // import {GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 
 
@@ -10,25 +11,41 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.scss']
 })
 export class SignUpComponent implements OnInit{
+  myForm!: FormGroup;
   hide = true;
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  loading:boolean = false
   constructor( 
-    // private socialAuthService: SocialAuthService,
-    private router: Router
-    ){}
-  // password: new FormControl('', [Validators.required, Validators.min(3) ])
+    private router: Router,
+    private signupService: SignupService
+    ){
+      this.myForm = new FormGroup({
+        fullnameControl: new FormControl('', [Validators.required]),
+        emailFormControl: new FormControl('', [Validators.required, Validators.email]),
+        passwordControl: new FormControl('', [Validators.required]),
+      });
+    }
 
-  // signin: FormGroup = new FormGroup({
-  //   email: new FormControl('', [Validators.email, Validators.required ]),
-  //   password: new FormControl('', [Validators.required, Validators.min(3) ])
-  // });
-
-  // get passwordInput() { return this.signin.get('password');}
 
   ngOnInit() {
-    // this.socialAuthService.authState.subscribe((user: any) => {
-    //   console.log(user)
-    // })
+
+  }
+
+  toLogin() {
+    this.router.navigate(['/login'])
+  }
+
+  onSubmit() {
+    this.loading = true
+    const email = this.myForm.get('emailFormControl')!.value;
+    const fullname = this.myForm.get('fullnameControl')!.value;
+    const password = this.myForm.get('passwordControl')!.value;
+
+    this.signupService.signupService(email, password, fullname).subscribe((res) => {
+      this.loading = false
+      this.myForm.reset()
+      this.router.navigate(['/login'])
+    })
+
   }
 
   // loginWithGoogle() {
