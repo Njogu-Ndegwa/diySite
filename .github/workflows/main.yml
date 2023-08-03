@@ -44,3 +44,5 @@ jobs:
         remote_path: './sites/diySite/'
         sftp_only: true
         password: f5T6uFbjPD$5kD9
+
+        
