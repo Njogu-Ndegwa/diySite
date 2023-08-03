@@ -32,7 +32,7 @@ jobs:
       
 
     - name: Build Project
-      run: yarn run build:ssr
+      run: yarn run build
     
     - name: Sync Files
       uses: wlixcc/SFTP-Deploy-Action@v1.2.4
